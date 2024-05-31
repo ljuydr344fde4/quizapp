@@ -20,6 +20,17 @@
     --bg-mobile: url(./assets/images/pattern-background-mobile-light.svg);
     --bg-desktop:url(./assets/images/pattern-background-descktop-light.svg);
 }
+
+body.escuro {
+    --bg-color: #313e51;
+    --bg-mobile: url(./assets/images/pattern-background-mobile-dark.svg);
+    --bg-desktop:url(./assets/images/pattern-background-descktop-dark.svg); 
+    --primary-text-color: #fff;
+    --secondary-text-color: #abc1e1;
+    --button-bg: #3b4d66;
+    --shadow: 0px 16px 40px 0px rgba(49, 62 ,81, 0.14);
+    
+}
     
 body {
     height: 100vh;
@@ -147,7 +158,23 @@ main {
         margin-block: 81px;
 
     }
+    .tema{
+        gap: 16px;
+    }
 
+    .tema img {
+        width: 24px;
+    }
+
+    .tema button {
+        width: 48px;
+        height: 28px;
+    }
+
+    .tema button div{
+        width: 20px;
+        height: 20px;
+    }
     main{
         display: flex;
         max-width: 1160px;
@@ -166,13 +193,19 @@ main {
         font-size: 20px;
     }
 
+    .assuntos {
+        gap: 24px;
+    }
+
     .assuntos button {
        font-size: 28px;
        padding: 20px;
+       gap: 32px;
     }
     
     .assuntos button div {
         width: 56px;
         height: 56px;
+        padding: 8px;
     }
 }
