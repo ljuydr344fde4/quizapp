@@ -154,6 +154,16 @@ main {
     color: var(--primary-text-color);
 }
 
+.alternativas label:has(input:checked) {
+    outline: 3px solid var(--purple);
+
+    & span {
+        background: var(--purple);
+        color: var(--white);
+    }
+}
+
+
 .alternativas input {
     display: none;
 }
@@ -162,8 +172,6 @@ main {
     display: flex;
     align-items: center;
     gap: 16px;
-
-    flex-shrink: initial;
 }
 
 .alternativas div span {
@@ -177,6 +185,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 
