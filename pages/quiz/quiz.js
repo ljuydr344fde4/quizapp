@@ -6,7 +6,9 @@ const assunto = localStorage.getItem("assunto")
 
 let quiz = {}
 let pontos = 0
-let pergunta = 8
+let pergunta = 1
+let resposta = ""
+let idinputResposta = ""
 
 botaoTema.addEventListener("click", () => {
   trocarTema( body, botaoTema)
@@ -61,7 +63,7 @@ async function buscarperguntas() {
   <section class="alternativas">
       <form action="">
         <label for="alternativa_a">
-          <input type="radio" id="alternativa_a" name="alternativa">
+          <input type="radio" id="alternativa_a" name="alternativa" value="${alteraeSinais(quiz.questions[pergunta-1].options[0])}">
 
           <div>
               <span>A</span>
@@ -70,7 +72,7 @@ async function buscarperguntas() {
         </label>
 
         <label for="alternativa_b" >
-          <input type="radio"  id="alternativa_b" name="alternativa">
+          <input type="radio"  id="alternativa_b" name="alternativa" value="${alteraeSinais(quiz.questions[pergunta-1].options[1])}">
 
           <div>
               <span>B</span>
@@ -79,7 +81,7 @@ async function buscarperguntas() {
         </label>
 
         <label for="alternativa_c">
-          <input type="radio" id="alternativa_c" name="alternativa">
+          <input type="radio" id="alternativa_c" name="alternativa" value="${alteraeSinais(quiz.questions[pergunta-1].options[2])}">
 
           <div>
               <span>C</span>
@@ -88,7 +90,7 @@ async function buscarperguntas() {
       </label>
 
       <label for="alternativa_d" >
-      <input type="radio" id="alternativa_d" name="alternativa">
+       <input type="radio" id="alternativa_d" name="alternativa" value=${alteraeSinais(quiz.questions[pergunta-1].options[2])}">
 
       <div>
           <span>D</span>
@@ -106,11 +108,24 @@ function alteraeSinais(texto) {
   return texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")
 }
 
+function guardarResposta(evento) {
+    resposta = evento.target.value
+    idinputResposta = evento.target.idinputResposta
+
+    console.log(resposta)
+    console.log(idinputResposta)
+}
 
 async function iniciar() {
    alterarAssunto()
    await buscarperguntas()
    montarPergunta()
+
+   const inputResposta = document.querySelector(".alternativas input")
+   inputResposta.forEach(input => {
+         input.addEventListener("click", guardarResposta)
+   })
+
  }
 
  iniciar()
