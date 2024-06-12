@@ -41,7 +41,7 @@ function inserirResultado () {
 }
 
 function jogarNovamente() {
-  localStorage.remooveItem("pontos")
+  localStorage.removeItem("pontos")
   localStorage.removeItem("assunto")
 
   window.location.href = "../../index.html"
